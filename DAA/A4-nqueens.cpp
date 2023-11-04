@@ -73,7 +73,12 @@ void nQueen(int** arr, int x, int n){
 
 int main(){
     int n;
-    cin >> n;
+    cout << "Enter the board size (N): ";
+    while (!(cin >> n) || n < 1) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter a positive integer: ";
+    }
     
     int **arr = new int*[n];    
     for(int i = 0; i < n; i++)
@@ -85,7 +90,7 @@ int main(){
         }
     }
 	
-	cout << "All possible solutions: ";
+	cout << "All possible solutions: \n";
 	nQueen(arr, 0, n);
 	
 	
